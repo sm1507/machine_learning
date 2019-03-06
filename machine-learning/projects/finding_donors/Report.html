@@ -13911,18 +13911,18 @@ It is a ratio of true positives(words classified as spam, and which are actually
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>**  Answer</p>
-<p>Below are the three classifier models I picked to determine the individuals with the greatest probability of making over $50k.  I tested all of the Classifier models above to see which ones had the greatest F-score.  From this test, I determined the following are the most appropriate.</p>
+<p>Below are the three classifier models I picked to predict individuals with the greatest probability of making over $50k.  I tested all of the Classifier models above to see which ones had the greatest F-score.  From this test, I determined the following are the most appropriate.</p>
 <p>Gradient Boosting:</p>
 <ul>
-<li>Real World - Real world applications for Gradient Boosting are often highly unbalanced data such as DNA Sequences, credit card transaction, and cyber security.  </li>
-<li>Strengths - Model performs very well with weak learners.  Gradient Boosting will calculate the error rate for each learner and find the best learner to reduce the error.  The process is then repeated, simliar to the proecess Gradient Descent uses to minimize the error rate.  </li>
+<li>Real World - Generally used with highly unbalanced data such as DNA Sequences, credit card transaction, and cyber security.  </li>
+<li>Strengths - Model performs very well with weak learners.  Gradient Boosting will calculate the error rate for each learner and find the best learner to reduce the error.  The process is then repeated, simliar to the process Gradient Descent uses to minimize its error rate.  </li>
 <li>Weakness - Weakness is it can easily overfit if you are not careful.  </li>
-<li>Candidate - This is a good candidate because the data seet is large and the data is diverse </li>
+<li>Candidate - This is a good candidate because the data set is large and diverse. </li>
 </ul>
 <p>(Sources: <a href="https://medium.com/@aravanshad/gradient-boosting-versus-random-forest-cfa3fa8f0d80">https://medium.com/@aravanshad/gradient-boosting-versus-random-forest-cfa3fa8f0d80</a>, <a href="https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/">https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/</a>  )</p>
 <p>Random Forrest:</p>
 <ul>
-<li>Real World - Real World application is bioinformatics, like medical diagnosis.</li>
+<li>Real World - Real World application is to use with bioinformatics, like medical diagnosis.</li>
 <li>Strengths - Easier to tune and can handle a large amount of training data efficently.</li>
 <li>Weakness - A large number of trees could make the algorithm slow.  </li>
 <li>Candidate - Works well with a large amount of data where the attributes are categorical.</li>
@@ -14163,7 +14163,7 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <p>Gradient Boosting appears to be the most appropriate model for finding individuals with income &gt;$50k.  This model has the highest F-score (~.74) on the testing set compared to the other models.  The F-score on the testing data improves as the training size increases.  You also see the F-score on the Training Subset (top right graph) decrease to the point where the F-score on the training data and testing data start to converge at around the .75 mark.</p>
-<p>The prediction time is about .027 seconds and the training time is over 8 seconds when 100% of the training data is used.  Its not the fastest model to train compared to the others, in fact the training time is substantially more with 100% of the training data.  The prediction time is in line with the other models.  The Use Case for this model would be to find individuals with income over $50k.  I believe the extra time it takes to train the model would be acceptable since this is not for real-time prediction.  If time was a factor, then I would consider reducing the training size to 10%.  The improvement in F-score is only slightly better with 100% training data than with 10% training data.  The training speed may outweigh the slight improvement in F-score under certain circumstances.</p>
+<p>The prediction time is about .027 seconds and the training time is over 8 seconds when 100% of the training data is used.  Its not the fastest model to train compared to the others, in fact the training time is substantially more with 100% of the training data.  The .027/s prediction time is in line with the other models.  The Use Case for this model would be to find individuals with income over $50k.  I believe the extra time it takes to train the model would be acceptable since this is not for real-time prediction.  If time was a factor, then I would consider reducing the training size to 10%.  The improvement in F-score is only slightly better with 100% training data than with 10% training data.  The training speed may outweigh the slight improvement in F-score under certain circumstances.</p>
 <p>Gradient Boosting is the most suitable algorithm for this Use Case.  It has the highest F-score which, with this Use Case, is more valuable than the time it takes to train the model.  If training is a factor then reducing the training data size to 10% would be a viable option.</p>
 
 </div>
@@ -14185,7 +14185,7 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>Gradient Boosting is an ensemble model that takes the combination of weak learners to predict its outcome.  The model calculates the error rate of the weak learners and then chooses the learner with the least error rate for the next step.  The model will then recalculate the error rate for the following step and again choose the learner with the least error rate.  The model continues to repeat this process until it completes the training model with all of the training data.  This model is ideal because it, in a sense, takes the best part of all the weak learners to build a very good model.</p>
+<p>Gradient Boosting is an ensemble model that takes the combination of weak learners to predict its outcome.  The model calculates the error rate of the weak learners and then chooses the learner with the least error rate for the next step.  The model will then recalculate the error rate for the following step and again choose the learner with the least error rate.  The model continues to repeat this process until it completes the training model with all of the training data.  This model is ideal because it takes the best part of all the weak learners to build a very good model.</p>
 
 </div>
 </div>
@@ -14324,6 +14324,7 @@ Final F-score on the testing data: 0.7483
 <th style="text-align:center">Metric</th>
 <th style="text-align:center">Unoptimized Model</th>
 <th style="text-align:center">Optimized Model</th>
+<th style="text-align:center">Predictor Benchmark</th>
 </tr>
 </thead>
 <tbody>
@@ -14331,11 +14332,13 @@ Final F-score on the testing data: 0.7483
 <td style="text-align:center">Accuracy Score</td>
 <td style="text-align:center">0.8630</td>
 <td style="text-align:center">0.8688</td>
+<td style="text-align:center">0.2478</td>
 </tr>
 <tr>
 <td style="text-align:center">F-score</td>
 <td style="text-align:center">0.7395</td>
 <td style="text-align:center">0.7483</td>
+<td style="text-align:center">0.2917</td>
 </tr>
 </tbody>
 </table>
@@ -14347,7 +14350,7 @@ Final F-score on the testing data: 0.7483
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>The Optimized Model is slightly better than the Unoptimized Model.  Tuning the model increased the F-score from 0.7395 to 0.7483.  This is to be expected as the model is tuned to the training data.  The Optimized Model is by far better than the F-score 0.2917/Accuracy 0.2478 Naïve Predictor Benchmark calculated in question #1.  The Gradient Boosting model is shown to predict with much greater accuracy than our benchmar.</p>
+<p>The Optimized Model is slightly better than the Unoptimized Model.  Tuning the model increased the F-score from 0.7395 to 0.7483.  This is to be expected as the Optimized model is tuned to the training data.  The Optimized Model is also by far better than the F-score 0.2917/Accuracy 0.2478 Naïve Predictor Benchmark calculated in question #1.  Gradient Boosting is shown to predict with much greater accuracy than our benchmark.</p>
 
 </div>
 </div>
@@ -14374,6 +14377,7 @@ Final F-score on the testing data: 0.7483
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
+<p>Features are in the order of importance:</p>
 <ul>
 <li>Capital Gain – People who hold investments (mutual fund/stock investments) tend to have more income to invest</li>
 <li>Occupation – Higher paying jobs would lead to higher income.  </li>
@@ -14462,7 +14466,7 @@ Final F-score on the testing data: 0.7483
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>The above features include Capital Loss and Marital Status which I did not include in my feature list, while I included Occupation and Work Class.  I still believe Occupation is one of the best features to determine income level.  The problem is there are many different occupations in the data set.  It would be difficult to find a correlation between occupations when there are so many diverse data points.  I think it could be done if we had much more learning data or if I had included an income range for each occupation (ie. salary data).  I also choose Work Class because I thought there was a correlation to Work Class categories compared to individuals with higher income.  It looks like the data points for Work Class were too generic to be useful.  Most individuals fell under the “Private” category which was too generic to correlate with income.</p>
+<p>The above features include Capital Loss and Marital Status which I did not include in my feature list, while I included Occupation and Work Class.  I still believe Occupation is one of the best features to determine income level.  The problem is there are many different occupations in the data set.  It would be difficult to find a correlation between occupations when there are so many diverse data points.  I think it could be done if we had more learning data or if I had included an income range for each occupation (ie. salary data).  I also choose Work Class because I thought there was a correlation to Work Class categories compared to individuals with higher income.  It looks like the data points for Work Class were too generic to be useful.  Most individuals fell under the “Private” category which was too generic to correlate with income.</p>
 
 </div>
 </div>
@@ -14548,7 +14552,7 @@ F-score on testing data: 0.7240
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>As expected F-score and Accuracy are higher with the full data.  The other non-Top 5 features do contribute to the accuracy of the model just not to the extent as the Top 5 Features do.  Adding more data generally increases its accuracy, if only very slight incremental improvements.  If time was a factor, I would most definitely suggest reducing the training set.  Improving the training speed of the model could outweigh the slight incremental increase in Accuracy and F-score.</p>
+<p>As expected F-score and Accuracy are higher with the full data.  The other non-Top 5 features do contribute to the accuracy of the model but just not to the extent as the Top 5 Features do.  Adding more data generally increases its accuracy, even if only  slight incremental improvements.  If time was a factor, I would most definitely suggest reducing the number of features in the training set.  Improving the training speed of the model could outweigh the slight incremental increase in Accuracy and F-score.</p>
 
 </div>
 </div>
